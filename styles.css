@@ -32,13 +32,14 @@ p {
 }
 
 .headline {
-    font-size: 3vw;
+    font-size: 2.6vw;
 }
 
 section {
     padding: 100px 15%;
 }
 
+/* default section */
 section article {
     position: relative;
 }
@@ -56,10 +57,9 @@ section .headline {
     color: white;
     background-color: var(--darkgreen);
     position: relative;
-    padding: 10px 0;
+    padding: 20px 30% 20px 0;
     font-weight: 600;
     width: 80%;
-    padding-right: 30%;
 }
 
 section .headline::before {
@@ -82,4 +82,32 @@ section img {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+/* flipped section */
+section.flipped {
+    background-color: var(--white)
+}
+
+section.flipped img {
+    right: unset;
+    left: 0;
+}
+
+section.flipped p {
+    margin: 10px 0 0 auto;
+}
+
+section.flipped .headline {
+    margin: 0 0 0 auto;
+}
+
+section.flipped .headline {
+    padding: 20px 0 20px 30%;
+}
+
+section.flipped .headline::before {
+    width: 50px;
+    left: unset;
+    right: -50px;
 }
