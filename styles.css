@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+:root {
+    --lightyellow: #FAF7EC;
+    --green: #BFDA79;
+    --darkgreen: #94C11E;
+    --gray: #F5F5F5;
+    --darkgray: #8C8B89;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: var(--lightyellow);
+    min-height: 400px;
+}
