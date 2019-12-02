@@ -23,4 +23,63 @@ html, body {
 body {
     background-color: var(--lightyellow);
     min-height: 400px;
+    font-size: 22px;
+}
+
+p {
+    font-size: 1.1vw;
+    line-height: 1.6;
+}
+
+.headline {
+    font-size: 3vw;
+}
+
+section {
+    padding: 100px 15%;
+}
+
+section article {
+    position: relative;
+}
+
+section p,
+section .headline {
+    width: 50%;
+}
+
+section p {
+    margin-top: 10px;
+}
+
+section .headline {
+    color: white;
+    background-color: var(--darkgreen);
+    position: relative;
+    padding: 10px 0;
+    font-weight: 600;
+    width: 80%;
+    padding-right: 30%;
+}
+
+section .headline::before {
+    content: ' ';
+    height: 100%;
+    background-color: var(--darkgreen);
+    position: absolute;
+    top: 0;
+} 
+
+section .headline::before {
+    width: 50px;
+    left: -50px;
+}
+
+section img {
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
