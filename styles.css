@@ -111,3 +111,11 @@ section.flipped .headline::before {
     left: unset;
     right: -50px;
 }
+
+.christmas .headline {
+    background-color: #E20000;
+}
+
+.christmas .headline::before {
+    background-color: #E20000;
+}
