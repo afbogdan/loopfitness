@@ -48,6 +48,20 @@ article {
     
 }
 
+article {
+    background-color: var(--darkgreen);
+    background-size: cover;
+    border-radius: 100%;
+    width: 60vw;
+    height: 60vw;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 18px;
+    justify-content: center;
+    color: white;
+}
+
 
 footer {
     color: var(--white);
