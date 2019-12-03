@@ -4,6 +4,7 @@
     --lightyellow: #FAF7EC;
     --green: #BFDA79;
     --darkgreen: #94C11E;
+    --lightgreen: #e9ffaf;
     --gray: #F5F5F5;
     --darkgray: #8C8B89;
     --white: #FFFFFF;
@@ -23,4 +24,113 @@ html, body {
 body {
     background-color: var(--lightyellow);
     min-height: 400px;
+    font-size: 22px;
 }
+
+p {
+    font-size: 1.1vw;
+    line-height: 1.6;
+}
+
+.headline {
+    font-size: 2.6vw;
+}
+
+section {
+    padding: 100px 15%;
+}
+
+/* default section */
+section article {
+    position: relative;
+}
+
+section p {
+    margin-top: 10px;
+    width: 50%;
+}
+
+section article header {
+    color: white;
+    background-color: var(--darkgreen);
+    position: relative;
+    width: 80%;
+    padding: 20px 30% 20px 0;
+}
+
+section article header::before {
+    content: ' ';
+    height: 100%;
+    background-color: var(--darkgreen);
+    position: absolute;
+    top: 0;
+    width: 50px;
+    left: -50px;
+} 
+
+section .headline {
+    position: relative;
+    font-weight: 600;
+    width: 100%;
+}
+
+section img {
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+section article header .link {
+    color: var(--lightgreen);
+    transition: 0.25s ease-in-out;
+    margin-top: 4px;
+    font-size: 1.3vw;
+}
+
+section article header .link:visited {
+    color: var(--lightgreen);
+}
+
+section article header .link:hover {
+    color: var(--white);
+}
+
+/* flipped section */
+section.flipped {
+    background-color: var(--white)
+}
+
+section.flipped img {
+    right: unset;
+    left: 0;
+}
+
+section.flipped p {
+    margin: 10px 0 0 auto;
+}
+
+section.flipped header {
+    padding: 20px 0 20px 30%;
+    margin: 0 0 0 auto;
+}
+
+section.flipped header::before {
+    width: 50px;
+    left: unset;
+    right: -50px;
+}
+
+/* christmas section */
+
+.christmas article header {
+    background-color: #E20000;
+}
+
+.christmas article header::before {
+    background-color: #E20000;
+}
+
+/* footer section */
