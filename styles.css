@@ -4,6 +4,7 @@
     --lightyellow: #FAF7EC;
     --green: #BFDA79;
     --darkgreen: #94C11E;
+    --lightgreen: #e9ffaf;
     --gray: #F5F5F5;
     --darkgray: #8C8B89;
     --white: #FFFFFF;
@@ -44,35 +45,33 @@ section article {
     position: relative;
 }
 
-section p,
-section .headline {
+section p {
+    margin-top: 10px;
     width: 50%;
 }
 
-section p {
-    margin-top: 10px;
-}
-
-section .headline {
+section article header {
     color: white;
     background-color: var(--darkgreen);
     position: relative;
-    padding: 20px 30% 20px 0;
-    font-weight: 600;
     width: 80%;
+    padding: 20px 30% 20px 0;
 }
 
-section .headline::before {
+section article header::before {
     content: ' ';
     height: 100%;
     background-color: var(--darkgreen);
     position: absolute;
     top: 0;
-} 
-
-section .headline::before {
     width: 50px;
     left: -50px;
+} 
+
+section .headline {
+    position: relative;
+    font-weight: 600;
+    width: 100%;
 }
 
 section img {
@@ -82,6 +81,21 @@ section img {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+section article header .link {
+    color: var(--lightgreen);
+    transition: 0.25s ease-in-out;
+    margin-top: 4px;
+    font-size: 1.3vw;
+}
+
+section article header .link:visited {
+    color: var(--lightgreen);
+}
+
+section article header .link:hover {
+    color: var(--white);
 }
 
 /* flipped section */
@@ -98,24 +112,25 @@ section.flipped p {
     margin: 10px 0 0 auto;
 }
 
-section.flipped .headline {
+section.flipped header {
+    padding: 20px 0 20px 30%;
     margin: 0 0 0 auto;
 }
 
-section.flipped .headline {
-    padding: 20px 0 20px 30%;
-}
-
-section.flipped .headline::before {
+section.flipped header::before {
     width: 50px;
     left: unset;
     right: -50px;
 }
 
-.christmas .headline {
+/* christmas section */
+
+.christmas article header {
     background-color: #E20000;
 }
 
-.christmas .headline::before {
+.christmas article header::before {
     background-color: #E20000;
 }
+
+/* footer section */
