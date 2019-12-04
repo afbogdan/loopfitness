@@ -24,6 +24,73 @@ body {
     min-height: 400px;
 }
 
+@media screen and (max-width: 375px) {
+    .mobile-header {
+        position: relative;
+        margin-top: 50px;
+    }
+    
+    .mobile-header .logo {
+        width: 75px;
+        height: auto;
+        position: absolute;
+        left: 10px;
+        top: -15px;
+    }
+    
+    .mobile-header .fa {
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        color: var(--darkgray);
+    }
+    
+    .mobile-header nav {
+        background-color: var(--white);
+        height: 35px;
+        transition: 0.15s ease-out;
+    }
+    
+    .mobile-header nav ul {
+        text-align: center;
+        list-style-type: none;
+        padding: 5px;
+    }
+    
+    .mobile-header nav.active {
+        height: 151px;
+    }
+    
+    .mobile-header nav ul li {
+        margin: 15px;
+        opacity: 0;
+    }
+    
+    .mobile-header nav.active ul li {
+        opacity: 1;
+        transition: 0.25s ease-in-out;
+    }
+    
+    .mobile-header nav ul li.active {
+        color: var(--darkgreen);
+    }
+    
+    .mobile-header nav ul li::after {
+        content: ' ';
+        display: block;
+        height: 2px;
+        width: 50px;
+        background-color: var(--darkgreen);
+        margin-left: calc(50% - 25px);
+        margin-top: 10px;
+    }
+    
+    .mobile-header nav ul li:last-child::after {
+        content: ' ';
+        display: none;
+    }
+}
+
 header {
     width: 100%;
     margin-top: 100px;
