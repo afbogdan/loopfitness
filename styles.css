@@ -78,10 +78,11 @@ nav ul li a:hover {
 
 .logo {
     top: -32px;
-    left: 15%;
+    left: 10%;
     position: absolute;
     width: 150px;
     height: auto;
+
 }
 
 #menuButton {
@@ -98,7 +99,7 @@ nav ul li a:hover {
     color: var(--darkgray);
     text-decoration: none;
     right: 150px;
-    top: 16px;
+    top: 20px;
     font-size: 1vw;
     transition: 0.5s;
 }
