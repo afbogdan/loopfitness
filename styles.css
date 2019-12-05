@@ -40,6 +40,8 @@ body > header {
     width: 100%;
     margin-top: 50px;
     position: relative;
+    grid-column-start: 1;
+    grid-column-end: 6;
 }
 
 nav {
@@ -78,10 +80,11 @@ nav ul li a:hover {
 
 .logo {
     top: -32px;
-    left: 15%;
+    left: 10%;
     position: absolute;
     width: 150px;
     height: auto;
+
 }
 
 #menuButton {
@@ -98,7 +101,7 @@ nav ul li a:hover {
     color: var(--darkgray);
     text-decoration: none;
     right: 150px;
-    top: 16px;
+    top: 20px;
     font-size: 1vw;
     transition: 0.5s;
 }
@@ -110,7 +113,31 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 200px 15%;
+    padding: 200px 0;
+    position: relative;
+}
+
+section.flipped::after, section.flipped::before {
+    content: ' ';
+    background: rgb(255, 255, 255);
+    width: 15vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+section.flipped::after {
+    right: -15vw;
+}
+
+section.flipped::before {
+    left: -15vw;
+}
+
+section, footer {
+    grid-column-start: 2;
+    grid-column-end: 5;
 }
 
 /* default section */
@@ -129,6 +156,7 @@ section article header {
     position: relative;
     width: 80%;
     padding: 20px 30% 20px 0;
+    grid-area: sh1;
 }
 
 section article header::before {
@@ -137,8 +165,9 @@ section article header::before {
     background-color: var(--darkgreen);
     position: absolute;
     top: 0;
-    width: 50px;
+    width: 52px;
     left: -50px;
+    z-index: 100;
 } 
 
 section .headline {
@@ -191,7 +220,7 @@ section.flipped header {
 }
 
 section.flipped header::before {
-    width: 50px;
+    width: 55px;
     left: unset;
     right: -50px;
 }
@@ -206,11 +235,87 @@ section.flipped header::before {
     background-color: #E20000;
 }
 
-/* footer section */
+/* Grid */
 
-@media (max-width: 425px) {
+
+.grid-container {
+    width: 100%;
+	}
+    
+.grid-container {
+        display: grid;
+        grid-template-columns: 15vw auto 5vw auto 15vw;
+        grid-template-rows: auto;
+}
+
+/*Small laptops & bigger tablets*/
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    section {
+        padding: 125px 0;
+        position: relative;
+    }
+
+    p {
+        font-size: 1.4vw;
+        line-height: 1.6;
+    }
+}
+
+/*Tablets*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    section {
+        padding: 125px 0;
+        position: relative;
+    }
+
+    .headline {
+        font-size: 2.8vw;
+    }
+
+    nav ul {
+        margin-left: 250px;
+    }
+
+    nav ul li a {
+        font-size: 1.8vw;
+    }
+
+    .nav-btn {
+        right: 65px; 
+        font-size: 1.5vw;
+        padding: 7px 9px;
+    }
+    
+
+    p {
+        font-size: 1.6vw;
+        line-height: 1.6;
+    }
+    
+    section article header::before {
+        width: 50px;
+    } 
+    
+    section.flipped header::before {
+        width: 55px;
+        left: unset;
+        right: -50px;
+    }
+
+    section img {
+        width: 50%;
+        right: -4vw;
+    }
+
+}
+
+/*Phones & phablets*/
+
+@media (max-width: 768px) {
     section, section.flipped {
-        padding: 10%;
+        padding: 3%;
     }
 
     .headline {
@@ -293,7 +398,7 @@ section.flipped header::before {
     }
     
     header nav.active {
-        height: 152px;
+        height: 173px;
     }
     
     header nav ul li {
