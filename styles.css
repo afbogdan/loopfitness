@@ -43,15 +43,15 @@ body > header {
 }
 
 nav {
-    height: 50px;
+    height: 70px;
     width: 100%;
     background-color: var(--white);
 }
 
 nav ul {
     list-style-type: none;
-    margin-left: 300px;
-    padding-top: 10px;
+    margin-left: 25%;
+    padding-top: 18px;
 }
 
 nav ul li {
@@ -77,10 +77,10 @@ nav ul li a:hover {
 }
 
 .logo {
-    top: -22px;
-    left: 150px;
+    top: -32px;
+    left: 15%;
     position: absolute;
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 
@@ -98,7 +98,7 @@ nav ul li a:hover {
     color: var(--darkgray);
     text-decoration: none;
     right: 150px;
-    top: 9px;
+    top: 16px;
     font-size: 1vw;
     transition: 0.5s;
 }
@@ -110,7 +110,7 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 100px 15%;
+    padding: 200px 15%;
 }
 
 /* default section */
