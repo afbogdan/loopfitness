@@ -8,6 +8,7 @@
     --darkgray: #8C8B89;
     --white: #FFFFFF;
     --black: #000000;
+    --red: #E20000;
 }
 
 * {
@@ -35,9 +36,9 @@ p {
     font-size: 2.6vw;
 }
 
-header {
+body > header {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
     position: relative;
 }
 
@@ -50,7 +51,7 @@ nav {
 nav ul {
     list-style-type: none;
     margin-left: 300px;
-    padding-top: 14px;
+    padding-top: 10px;
 }
 
 nav ul li {
@@ -60,9 +61,11 @@ nav ul li {
 }
 
 nav ul li a {
-    width: 60px;
     text-decoration: none;
     color: var(--darkgray);
+    font-size: 1.4vw;
+    font-weight: 500;
+    transition: 0.15s ease-in-out;
 }
 
 nav ul li.active a {
@@ -205,16 +208,58 @@ section.flipped header::before {
 
 /* footer section */
 
-
 @media (max-width: 425px) {
-    header {
+    section, section.flipped {
+        padding: 10%;
+    }
+
+    .headline {
+        font-size: 6vw;
+        line-height: 1.2;
+    }
+
+    section article header,
+    section.flipped header {
+        padding: 20px 0;
+        width: 100%;
+        color: var(--darkgreen);
+        background: transparent;
+        text-align: center;
+    }
+
+    .christmas article header {
+        background: transparent;
+        color: var(--red);
+    }
+
+    section article header .link,
+    section article header .link:visited {
+        color: var(--darkgray);
+        font-size: 4vw;
+    }
+    
+
+    section img {
+        width: 70%;
+        margin: 0 15%;
         position: relative;
-        margin-top: 50px;
+    }
+
+    section p {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        font-size: 3.5vw;
+    }
+
+    section article header::before {
+        display: none;
     }
 
     .logo {
         width: 75px;
-        left: 10px;
+        left: 20px;
         top: -15px;
         margin: 0;
     }
@@ -229,8 +274,8 @@ section.flipped header::before {
     
     header .fa {
         position: absolute;
-        right: 10px;
-        top: 1px;
+        right: 20px;
+        top: 7px;
         color: var(--darkgray);
     }
     
@@ -248,7 +293,7 @@ section.flipped header::before {
     }
     
     header nav.active {
-        height: 132px;
+        height: 152px;
     }
     
     header nav ul li {
@@ -293,5 +338,9 @@ section.flipped header::before {
     header nav ul li:last-child::after {
         content: ' ';
         display: none;
+    }
+
+    header nav ul li a {
+        font-size: 4vw;
     }
 }
