@@ -124,22 +124,12 @@ section p {
 }
 
 section article header {
-    color: white;
-    background-color: var(--darkgreen);
+    color: var(--darkgreen);
     position: relative;
     width: 80%;
     padding: 20px 30% 20px 0;
 }
 
-section article header::before {
-    content: ' ';
-    height: 100%;
-    background-color: var(--darkgreen);
-    position: absolute;
-    top: 0;
-    width: 50px;
-    left: -50px;
-} 
 
 section .headline {
     position: relative;
@@ -171,92 +161,71 @@ section article header .link:hover {
     color: var(--white);
 }
 
-/* flipped section */
-section.flipped {
-    background-color: var(--white)
-}
+/* Grid */
 
-section.flipped img {
-    right: unset;
-    left: 0;
-}
 
-section.flipped p {
-    margin: 10px 0 0 auto;
-}
-
-section.flipped header {
-    padding: 20px 0 20px 30%;
-    margin: 0 0 0 auto;
-}
-
-section.flipped header::before {
-    width: 50px;
-    left: unset;
-    right: -50px;
-}
-
-/* christmas section */
-
-.christmas article header {
-    background-color: #E20000;
-}
-
-.christmas article header::before {
-    background-color: #E20000;
-}
-
-/* footer section */
-
-@media (max-width: 425px) {
-    section, section.flipped {
-        padding: 10%;
-    }
-
-    .headline {
-        font-size: 6vw;
-        line-height: 1.2;
-    }
-
-    section article header,
-    section.flipped header {
-        padding: 20px 0;
-        width: 100%;
-        color: var(--darkgreen);
-        background: transparent;
-        text-align: center;
-    }
-
-    .christmas article header {
-        background: transparent;
-        color: var(--red);
-    }
-
-    section article header .link,
-    section article header .link:visited {
-        color: var(--darkgray);
-        font-size: 4vw;
-    }
+.grid-container {
+    width: 100%;
+	}
     
+.grid-container {
+        display: grid;
+        grid-template-columns: 15vw auto 5vw auto 15vw;
+        grid-template-rows: auto;
+}
 
-    section img {
-        width: 70%;
-        margin: 0 15%;
+/*Small laptops & bigger tablets*/
+
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    section {
+        padding: 125px 0;
         position: relative;
     }
 
-    section p {
-        margin: 0;
-        text-align: center;
-        width: 100%;
-        margin-top: 20px;
-        font-size: 3.5vw;
+    p {
+        font-size: 1.4vw;
+        line-height: 1.6;
+    }
+}
+
+/*Tablets*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .headline {
+        font-size: 2.8vw;
     }
 
-    section article header::before {
-        display: none;
+    nav ul {
+        margin-left: 250px;
     }
 
+    nav ul li a {
+        font-size: 1.8vw;
+    }
+
+    .nav-btn {
+        right: 65px; 
+        font-size: 1.5vw;
+        padding: 7px 9px;
+    }
+    
+
+    p {
+        font-size: 1.6vw;
+        line-height: 1.6;
+    }
+    
+   
+}
+
+/*Phone and phablets*/
+
+@media (max-width: 768px) {
+
+ 
+    
     .logo {
         width: 75px;
         left: 20px;
@@ -343,4 +312,29 @@ section.flipped header::before {
     header nav ul li a {
         font-size: 4vw;
     }
+
+    section {
+        padding-top: 75px;
+    }
+
+    section header .headline {
+        font-size: 7vw;
+        text-align: center;
+        width: 70vw;
+    }
+
+    section img {
+        width: 70%;
+        margin: 0 15%;
+        position: relative;
+    }
+
+    section p {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        font-size: 3.5vw;
+    }
 }
+
