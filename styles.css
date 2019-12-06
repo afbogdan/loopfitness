@@ -118,7 +118,7 @@ section {
 }
 
 section.flipped::after, section.flipped::before {
-    content: ' ';
+    content: '';
     background: rgb(255, 255, 255);
     width: 15vw;
     height: 100%;
@@ -141,36 +141,42 @@ section, footer {
 }
 
 /* default section */
-section article {
-    position: relative;
-}
-
 section p {
     margin-top: 10px;
-    width: 50%;
     padding: 7px;
     grid-column-start: 1;
     grid-column-end: 2;
+    grid-area: paragraph;
 }
 
-section article header {
+section header {
     color: white;
     background-color: var(--darkgreen);
     position: relative;
-    width: 80%;
-    padding: 20px 30% 20px 0;
+    padding: 20px 0;
+    grid-area: header;
 }
 
-section article header::before {
+section header::before, section header::after {
     content: ' ';
     height: 100%;
     background-color: var(--darkgreen);
     position: absolute;
+    z-index: 100;
+} 
+
+section header::before {
     top: 0;
     width: 52px;
     left: -50px;
-    z-index: 100;
-} 
+}
+
+section header::after {
+    width: 60%;
+    right: -60%;
+    top: 0;
+    z-index: 1;
+}
 
 section .headline {
     position: relative;
@@ -179,34 +185,31 @@ section .headline {
 }
 
 section img {
-    width: 40%;
+    width: 100%;
     height: auto;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    z-index: 100;
+    grid-area: image;
 }
 
-section article header .link {
+section header .link {
     color: var(--lightgreen);
     transition: 0.25s ease-in-out;
     margin-top: 4px;
     font-size: 1.3vw;
 }
 
-section article header .link:visited {
+section header .link:visited {
     color: var(--lightgreen);
 }
 
-section article header .link:hover {
+section header .link:hover {
     color: var(--white);
 }
 
 /* flipped section */
 section.flipped {
-    background-color: var(--white)
+    background-color: var(--white);
 }
 
 section.flipped img {
@@ -219,7 +222,7 @@ section.flipped p {
 }
 
 section.flipped header {
-    padding: 20px 0 20px 30%;
+    padding: 20px 0;
     margin: 0 0 0 auto;
 }
 
@@ -229,13 +232,19 @@ section.flipped header::before {
     right: -50px;
 }
 
+section.flipped header::after {
+    right: unset;
+    left: -60%;
+}
+
 /* christmas section */
 
-.christmas article header {
+.christmas header {
     background-color: #E20000;
 }
 
-.christmas article header::before {
+.christmas header::before,
+.christmas header::after {
     background-color: #E20000;
 }
 
@@ -247,26 +256,30 @@ section.flipped header::before {
 }
 
 /* Grid */
-
-
 .grid-container {
     width: 100%;
-	}
+}
     
 .grid-container {
-        display: grid;
-        grid-template-columns: 15vw auto 15vw;
-        grid-template-rows: auto;
-}
-
-.grid-section {
-    width:100%;
+    display: grid;
+    grid-template-columns: 15vw auto 15vw;
+    grid-template-rows: auto;
 }
 
 .grid-section {
     display: grid;
-    grid-template-columns: 45% 45%;
-    grid-gap: 5%;
+    grid-template-columns: 47.5% 47.5%;
+    grid-column-gap: 5%;
+    grid-template-rows: 25% auto;
+    grid-template-areas: 
+    "header image"
+    "paragraph image";
+}
+
+.grid-section-flipped {
+    grid-template-areas: 
+    "image header"
+    "image paragraph"
 }
 
 /*Small laptops & bigger tablets*/
