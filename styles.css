@@ -432,6 +432,81 @@ section.flipped header::after {
 
 /*Phones & phablets*/
 @media (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 10vw auto 10vw;
+        grid-template-rows: auto;
+    }
+
+    .grid-section {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "header"
+            "image"
+            "paragraph";
+    }
+
+    .grid-footer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas:
+            "header header"
+            "image image"
+            "address address"
+            "centreHours staffHours"
+            "welcome welcome";
+    }
+
+    .item-address,
+    .item-welcome {
+        text-align: center;
+    }
+
+    section header .link {
+        color: var(--darkgray);
+        margin: 10px 0;
+        font-size: 4vw;
+    }
+
+    section header .link:visited {
+        color: var(--darkgray);
+    }
+
+    section header::before, 
+    section header::after {
+        display: none;
+    }
+
+    section.flipped::after, 
+    section.flipped::before,
+    body > header::before,
+    body > header::after {
+        width: 10vw;
+    }
+
+    section.flipped::after,
+    body > header::after {
+        right: -10vw;
+    }
+
+    section.flipped::before,
+    body > header::before {
+        left: -10vw;
+    }
+    
+    section.christmas header {
+        background: transparent;
+        color: var(--red);
+    }
+
+    section header {
+        background: transparent;
+        color: var(--darkgreen);
+    }
+
     section, section.flipped {
         padding: 3%;
     }
@@ -439,6 +514,7 @@ section.flipped header::after {
     .headline {
         font-size: 6vw;
         line-height: 1.2;
+        text-align: center;
     }
 
     section article header,
@@ -469,10 +545,8 @@ section.flipped header::after {
     }
 
     section p {
-        margin: 0;
-        text-align: center;
         width: 100%;
-        margin-top: 20px;
+        margin: 20px 0;
         font-size: 3.5vw;
     }
 
@@ -481,9 +555,9 @@ section.flipped header::after {
     }
 
     .logo {
-        width: 75px;
-        left: 20px;
-        top: -15px;
+        width: 100px;
+        left: 0px;
+        top: -21px;
         margin: 0;
     }
 
@@ -497,21 +571,22 @@ section.flipped header::after {
     
     header .fa {
         position: absolute;
-        right: 20px;
-        top: 7px;
+        right: 0;
+        top: 14px;
         color: var(--darkgray);
     }
     
     header nav {
         background-color: var(--white);
-        height: 35px;
+        height: 50px;
         transition: 0.15s ease-out;
+        justify-content: center;
     }
     
     header nav ul {
         text-align: center;
         list-style-type: none;
-        padding: 10px;
+        padding: 15px 0 0 0;
         margin: 0;
     }
     
@@ -561,6 +636,16 @@ section.flipped header::after {
     header nav ul li:last-child::after {
         content: ' ';
         display: none;
+    }
+
+    header nav ul li a {
+        font-size: 3.2vw;
+    }
+}
+
+@media (max-width: 475px) {
+    body > header {
+        margin-bottom: 20px;
     }
 
     header nav ul li a {
