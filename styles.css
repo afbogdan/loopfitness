@@ -40,8 +40,26 @@ body > header {
     width: 100%;
     margin-top: 50px;
     position: relative;
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+body > header::before,
+body > header::after {
+    content: '';
+    height: 100%;
+    width: 15vw;
+    background-color: var(--white);
+    position: absolute;
+    top: 0;
+}
+
+body > header::before {
+    left: -15vw;
+}
+
+body > header::after {
+    right: -15vw;
 }
 
 nav {
@@ -52,8 +70,8 @@ nav {
 
 nav ul {
     list-style-type: none;
-    margin-left: 30vw;
-    padding-top: 18px;
+    margin-left: 170px;
+    padding-top: 21px;
 }
 
 nav ul li {
@@ -80,11 +98,9 @@ nav ul li a:hover {
 
 .logo {
     top: -32px;
-    left: 15vw;
     position: absolute;
     width: 150px;
     height: auto;
-
 }
 
 #menuButton {
@@ -100,8 +116,8 @@ nav ul li a:hover {
     font-family: Raleway, sans-serif;
     color: var(--darkgray);
     text-decoration: none;
-    right: 15vw;
-    top: 20px;
+    right: 0;
+    top: 28%;
     font-size: 1vw;
     transition: 0.5s;
 }
@@ -309,7 +325,7 @@ section.flipped header::after {
 .grid-footer {
     display: grid;
     grid-template-columns: 47.5% 5% 22.75% 22.75%;
-    grid-template-rows: 25% 25% 35% auto;
+    grid-template-rows: auto 25% 35% auto;
     grid-template-areas: 
     "image . header header"
     "image . address address"
@@ -318,7 +334,6 @@ section.flipped header::after {
 }
 
 /*Small laptops & bigger tablets*/
-
 @media (min-width: 1024px) and (max-width: 1440px) {
     section {
         padding: 125px 0;
@@ -332,32 +347,46 @@ section.flipped header::after {
 }
 
 /*Tablets*/
-
 @media (min-width: 768px) and (max-width: 1024px) {
-    section {
-        padding: 125px 0;
-        position: relative;
+    .grid-container {
+        grid-template-columns: 10vw auto 10vw;
     }
 
-    .headline {
-        font-size: 2.8vw;
+    body > header::before,
+    body > header::after,
+    section.flipped::after, 
+    section.flipped::before {
+        width: 10vw;
     }
 
-    nav ul {
-        margin-left: 250px;
+    body > header::before,
+    section.flipped::before {
+        left: -10vw;
+    }
+
+    body > header::after,
+    section.flipped::after {
+        right: -10vw;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 0;
     }
 
     nav ul li a {
         font-size: 1.8vw;
     }
 
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
     .nav-btn {
-        right: 65px; 
-        font-size: 1.5vw;
-        padding: 7px 9px;
+        display: none;
     }
     
-
     p {
         font-size: 1.6vw;
         line-height: 1.6;
@@ -368,29 +397,40 @@ section.flipped header::after {
     } 
     
     section.flipped header::before {
-        width: 55px;
+        width: 32px;
         left: unset;
-        right: -50px;
+        right: -30px;
     }
 
-    section.flipped p {
-        margin: 10px 0 0 auto;
+    section header::before {
+        width: 32px;
+        left: -30px;
     }
     
-    section.flipped header {
-        padding: 20px 0 20px 30%;
-        margin: 0 0 0 auto;
+    section {
+        padding: 125px 0;
+        position: relative;
+    }
+}
+
+/* common tablets - small laptops */
+@media (min-width: 768px) and (max-width: 1440px) {
+    section header::after {
+        width: 62%;
     }
 
-    section img {
-        width: 50%;
-        right: -4vw;
+    .headline {
+        font-size: 2.8vw;
+        z-index: 10;
     }
 
+    .link {
+        position: relative;
+        z-index: 10;
+    }
 }
 
 /*Phones & phablets*/
-
 @media (max-width: 768px) {
     section, section.flipped {
         padding: 3%;
