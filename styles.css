@@ -175,22 +175,43 @@ section article header .link:hover {
         grid-template-rows: auto;
 }
 
-/*Small laptops & bigger tablets*/
 
+/*Desktop*/
 
-@media (min-width: 1024px) and (max-width: 1440px) {
+@media (min-width: 1441px) {
     section {
-        padding: 125px 0;
-        position: relative;
+        padding: 150px 10%;
+    }
+
+    section header .headline {
+        font-size: 3.5vw;
     }
 
     p {
-        font-size: 1.4vw;
+        font-size: 1.6vw;
+        line-height: 1.6;
+    }
+}
+
+/*Small laptops & bigger tablets*/ 
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    section {
+        padding: 150px 10%;
+    }
+
+    section header .headline {
+        font-size: 4vw;
+    }
+
+    section p {
+        font-size: 1.6vw;
         line-height: 1.6;
     }
 }
 
 /*Tablets*/
+/*I don't like how img looks here, but idk how to fix it, and also padding on section should be fixed*/
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -211,10 +232,21 @@ section article header .link:hover {
         font-size: 1.5vw;
         padding: 7px 9px;
     }
-    
 
-    p {
-        font-size: 1.6vw;
+    section {
+        padding: 150px 10%;
+    }
+
+    section img{
+        
+    }
+    
+    header .headline {
+        font-size: 4vw;
+    }
+
+    section p {
+        font-size: 2.2vw;
         line-height: 1.6;
     }
     
