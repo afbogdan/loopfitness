@@ -113,7 +113,7 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 200px 0;
+    padding: 150px 0;
     position: relative;
 }
 
@@ -146,7 +146,6 @@ section p {
     padding: 7px;
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-area: paragraph;
 }
 
 section header {
@@ -154,7 +153,6 @@ section header {
     background-color: var(--darkgreen);
     position: relative;
     padding: 20px 0;
-    grid-area: header;
 }
 
 section header::before, section header::after {
@@ -189,7 +187,6 @@ section img {
     height: auto;
     border-radius: 50%;
     z-index: 100;
-    grid-area: image;
 }
 
 section header .link {
@@ -217,13 +214,8 @@ section.flipped img {
     left: 0;
 }
 
-section.flipped p {
-    margin: 10px 0 0 auto;
-}
-
 section.flipped header {
     padding: 20px 0;
-    margin: 0 0 0 auto;
 }
 
 section.flipped header::before {
@@ -256,6 +248,38 @@ section.flipped header::after {
 }
 
 /* Grid */
+.item-image {
+    grid-area: image;
+}
+
+.item-paragraph {
+    grid-area: paragraph;
+}
+
+.item-header {
+    grid-area: header;
+    align-self: baseline;
+}
+
+.item-address {
+    grid-area: address;
+    align-self: center;
+}
+
+.item-centre-hours {
+    grid-area: centreHours;
+    align-self: center;
+}
+
+.item-staff-hours {
+    grid-area: staffHours;
+    align-self: center;
+}
+
+.item-welcome {
+    grid-area: welcome
+}
+
 .grid-container {
     width: 100%;
 }
@@ -280,6 +304,17 @@ section.flipped header::after {
     grid-template-areas: 
     "image header"
     "image paragraph"
+}
+
+.grid-footer {
+    display: grid;
+    grid-template-columns: 47.5% 5% 22.75% 22.75%;
+    grid-template-rows: 25% 25% 35% auto;
+    grid-template-areas: 
+    "image . header header"
+    "image . address address"
+    "image . centreHours staffHours"
+    "image . welcome welcome";
 }
 
 /*Small laptops & bigger tablets*/
