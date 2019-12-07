@@ -310,7 +310,7 @@ section.flipped header::after {
     display: grid;
     grid-template-columns: 47.5% 47.5%;
     grid-column-gap: 5%;
-    grid-template-rows: 25% auto;
+    grid-template-rows: auto auto;
     grid-template-areas: 
     "header image"
     "paragraph image";
@@ -458,6 +458,10 @@ section.flipped header::after {
             "address address"
             "centreHours staffHours"
             "welcome welcome";
+    }
+
+    body > header {
+        margin-bottom: 20px;
     }
 
     .item-address,
@@ -644,10 +648,6 @@ section.flipped header::after {
 }
 
 @media (max-width: 475px) {
-    body > header {
-        margin-bottom: 20px;
-    }
-
     header nav ul li a {
         font-size: 4vw;
     }
