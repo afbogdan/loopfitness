@@ -40,6 +40,26 @@ body > header {
     width: 100%;
     margin-top: 50px;
     position: relative;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+body > header::before,
+body > header::after {
+    content: '';
+    height: 100%;
+    width: 15vw;
+    background-color: var(--white);
+    position: absolute;
+    top: 0;
+}
+
+body > header::before {
+    left: -15vw;
+}
+
+body > header::after {
+    right: -15vw;
 }
 
 nav {
@@ -50,8 +70,8 @@ nav {
 
 nav ul {
     list-style-type: none;
-    margin-left: 25%;
-    padding-top: 18px;
+    margin-left: 170px;
+    padding-top: 21px;
 }
 
 nav ul li {
@@ -78,7 +98,6 @@ nav ul li a:hover {
 
 .logo {
     top: -32px;
-    left: 15%;
     position: absolute;
     width: 150px;
     height: auto;
@@ -97,8 +116,8 @@ nav ul li a:hover {
     font-family: Raleway, sans-serif;
     color: var(--darkgray);
     text-decoration: none;
-    right: 150px;
-    top: 16px;
+    right: 0;
+    top: 28%;
     font-size: 1vw;
     transition: 0.5s;
 }
@@ -110,36 +129,68 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 200px 15%;
+    padding: 150px 0;
+    position: relative;
+}
+
+section.flipped::after, section.flipped::before {
+    content: '';
+    background: rgb(255, 255, 255);
+    width: 15vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+section.flipped::after {
+    right: -15vw;
+}
+
+section.flipped::before {
+    left: -15vw;
+}
+
+section, footer {
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 /* default section */
-section article {
-    position: relative;
-}
-
 section p {
     margin-top: 10px;
-    width: 50%;
+    padding: 7px;
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
-section article header {
+section header {
     color: white;
     background-color: var(--darkgreen);
     position: relative;
-    width: 80%;
-    padding: 20px 30% 20px 0;
+    padding: 20px 0;
 }
 
-section article header::before {
+section header::before, section header::after {
     content: ' ';
     height: 100%;
     background-color: var(--darkgreen);
     position: absolute;
-    top: 0;
-    width: 50px;
-    left: -50px;
+    z-index: 100;
 } 
+
+section header::before {
+    top: 0;
+    width: 52px;
+    left: -50px;
+}
+
+section header::after {
+    width: 60%;
+    right: -60%;
+    top: 0;
+    z-index: 1;
+}
 
 section .headline {
     position: relative;
@@ -148,32 +199,30 @@ section .headline {
 }
 
 section img {
-    width: 40%;
+    width: 100%;
     height: auto;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
-    top: 0;
+    z-index: 100;
 }
 
-section article header .link {
+section header .link {
     color: var(--lightgreen);
     transition: 0.25s ease-in-out;
     margin-top: 4px;
     font-size: 1.3vw;
 }
 
-section article header .link:visited {
+section header .link:visited {
     color: var(--lightgreen);
 }
 
-section article header .link:hover {
+section header .link:hover {
     color: var(--white);
 }
 
 /* flipped section */
 section.flipped {
-    background-color: var(--white)
+    background-color: var(--white);
 }
 
 section.flipped img {
@@ -181,41 +230,291 @@ section.flipped img {
     left: 0;
 }
 
-section.flipped p {
-    margin: 10px 0 0 auto;
-}
-
 section.flipped header {
-    padding: 20px 0 20px 30%;
-    margin: 0 0 0 auto;
+    padding: 20px 0;
 }
 
 section.flipped header::before {
-    width: 50px;
+    width: 55px;
     left: unset;
     right: -50px;
 }
 
+section.flipped header::after {
+    right: unset;
+    left: -60%;
+}
+
 /* christmas section */
 
-.christmas article header {
+.christmas header {
     background-color: #E20000;
 }
 
-.christmas article header::before {
+.christmas header::before,
+.christmas header::after {
     background-color: #E20000;
 }
 
-/* footer section */
+/*footer section*/
 
-@media (max-width: 425px) {
+.flex-container {
+    display: flex;
+    margin-left: 34vw;
+}
+
+/* Grid */
+.item-image {
+    grid-area: image;
+}
+
+.item-paragraph {
+    grid-area: paragraph;
+}
+
+.item-header {
+    grid-area: header;
+    align-self: baseline;
+}
+
+.item-address {
+    grid-area: address;
+    align-self: center;
+}
+
+.item-centre-hours {
+    grid-area: centreHours;
+    align-self: center;
+}
+
+.item-staff-hours {
+    grid-area: staffHours;
+    align-self: center;
+}
+
+.item-welcome {
+    grid-area: welcome
+}
+
+.grid-container {
+    width: 100%;
+}
+    
+.grid-container {
+    display: grid;
+    grid-template-columns: 15vw auto 15vw;
+    grid-template-rows: auto;
+}
+
+.grid-section {
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    grid-column-gap: 5%;
+    grid-template-rows: 25% auto;
+    grid-template-areas: 
+    "header image"
+    "paragraph image";
+}
+
+.grid-section-flipped {
+    grid-template-areas: 
+    "image header"
+    "image paragraph"
+}
+
+.grid-footer {
+    display: grid;
+    grid-template-columns: 47.5% 5% 22.75% 22.75%;
+    grid-template-rows: auto 25% 35% auto;
+    grid-template-areas: 
+    "image . header header"
+    "image . address address"
+    "image . centreHours staffHours"
+    "image . welcome welcome";
+}
+
+/*Small laptops & bigger tablets*/
+@media (min-width: 1024px) and (max-width: 1440px) {
+    section {
+        padding: 125px 0;
+        position: relative;
+    }
+
+    p {
+        font-size: 1.4vw;
+        line-height: 1.6;
+    }
+}
+
+/*Tablets*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 10vw auto 10vw;
+    }
+
+    body > header::before,
+    body > header::after,
+    section.flipped::after, 
+    section.flipped::before {
+        width: 10vw;
+    }
+
+    body > header::before,
+    section.flipped::before {
+        left: -10vw;
+    }
+
+    body > header::after,
+    section.flipped::after {
+        right: -10vw;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+
+    nav ul li a {
+        font-size: 1.8vw;
+    }
+
+    nav ul li:last-child {
+        margin-right: 0;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+    
+    p {
+        font-size: 1.6vw;
+        line-height: 1.6;
+    }
+    
+    section article header::before {
+        width: 50px;
+    } 
+    
+    section.flipped header::before {
+        width: 32px;
+        left: unset;
+        right: -30px;
+    }
+
+    section header::before {
+        width: 32px;
+        left: -30px;
+    }
+    
+    section {
+        padding: 125px 0;
+        position: relative;
+    }
+}
+
+/* common tablets - small laptops */
+@media (min-width: 768px) and (max-width: 1440px) {
+    section header::after {
+        width: 62%;
+    }
+
+    .headline {
+        font-size: 2.8vw;
+        z-index: 10;
+    }
+
+    .link {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+/*Phones & phablets*/
+@media (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 10vw auto 10vw;
+        grid-template-rows: auto;
+    }
+
+    .grid-section {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "header"
+            "image"
+            "paragraph";
+    }
+
+    .grid-footer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas:
+            "header header"
+            "image image"
+            "address address"
+            "centreHours staffHours"
+            "welcome welcome";
+    }
+
+    .item-address,
+    .item-welcome {
+        text-align: center;
+    }
+
+    section header .link {
+        color: var(--darkgray);
+        margin: 10px 0;
+        font-size: 4vw;
+    }
+
+    section header .link:visited {
+        color: var(--darkgray);
+    }
+
+    section header::before, 
+    section header::after {
+        display: none;
+    }
+
+    section.flipped::after, 
+    section.flipped::before,
+    body > header::before,
+    body > header::after {
+        width: 10vw;
+    }
+
+    section.flipped::after,
+    body > header::after {
+        right: -10vw;
+    }
+
+    section.flipped::before,
+    body > header::before {
+        left: -10vw;
+    }
+    
+    section.christmas header {
+        background: transparent;
+        color: var(--red);
+    }
+
+    section header {
+        background: transparent;
+        color: var(--darkgreen);
+    }
+
     section, section.flipped {
-        padding: 10%;
+        padding: 3%;
     }
 
     .headline {
         font-size: 6vw;
         line-height: 1.2;
+        text-align: center;
     }
 
     section article header,
@@ -246,10 +545,8 @@ section.flipped header::before {
     }
 
     section p {
-        margin: 0;
-        text-align: center;
         width: 100%;
-        margin-top: 20px;
+        margin: 20px 0;
         font-size: 3.5vw;
     }
 
@@ -258,9 +555,9 @@ section.flipped header::before {
     }
 
     .logo {
-        width: 75px;
-        left: 20px;
-        top: -15px;
+        width: 100px;
+        left: 0px;
+        top: -21px;
         margin: 0;
     }
 
@@ -274,26 +571,27 @@ section.flipped header::before {
     
     header .fa {
         position: absolute;
-        right: 20px;
-        top: 7px;
+        right: 0;
+        top: 14px;
         color: var(--darkgray);
     }
     
     header nav {
         background-color: var(--white);
-        height: 35px;
+        height: 50px;
         transition: 0.15s ease-out;
+        justify-content: center;
     }
     
     header nav ul {
         text-align: center;
         list-style-type: none;
-        padding: 10px;
+        padding: 15px 0 0 0;
         margin: 0;
     }
     
     header nav.active {
-        height: 152px;
+        height: 173px;
     }
     
     header nav ul li {
@@ -338,6 +636,16 @@ section.flipped header::before {
     header nav ul li:last-child::after {
         content: ' ';
         display: none;
+    }
+
+    header nav ul li a {
+        font-size: 3.2vw;
+    }
+}
+
+@media (max-width: 475px) {
+    body > header {
+        margin-bottom: 20px;
     }
 
     header nav ul li a {
