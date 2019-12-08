@@ -87,6 +87,8 @@ nav ul li a:hover {
     position: absolute;
     width: 150px;
     height: auto;
+    -webkit-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
 }
 
 #menuButton {
@@ -678,5 +680,10 @@ section.flipped header::after {
 
     section p {
         font-size: 3.4vw;
+    }
+
+    .logo.small {
+        width: 80px;
+        top: -12px;
     }
 }
