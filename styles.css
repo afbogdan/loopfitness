@@ -1,7 +1,6 @@
 @charset "UTF-8";
 :root {
     --lightyellow: #FAF7EC;
-    --lightgreen: #cdff4b;
     --green: #BFDA79;
     --darkgreen: #94C11E;
     --lightgreen: #e9ffaf;
@@ -416,17 +415,21 @@ section.flipped header::after {
     body > header::before,
     body > header::after,
     section.flipped::after, 
-    section.flipped::before {
+    section.flipped::before,
+    .grid-testimonials::before,
+    .grid-testimonials::after {
         width: 10vw;
     }
 
     body > header::before,
-    section.flipped::before {
+    section.flipped::before,
+    .grid-testimonials::before {
         left: -10vw;
     }
 
     body > header::after,
-    section.flipped::after {
+    section.flipped::after,
+    .grid-testimonials::after {
         right: -10vw;
     }
 
@@ -521,6 +524,43 @@ section.flipped header::after {
             "welcome welcome";
     }
 
+    .grid-testimonials {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+            "header"
+            "testimonial-one"
+            "testimonial-two"
+            "testimonial-three";
+        background-color: var(--darkgreen);
+    }
+
+    .grid-testimonials article {
+        margin: 20px 0;
+    }
+
+    .grid-testimonials article header {
+        color: var(--white);
+    }
+
+    .grid-testimonials article header h3 {
+        font-size: 4.4vw;
+    }
+
+    .grid-testimonials article p {
+        margin-top: 0;
+    }
+
+    .grid-testimonials article header .fa {
+        position: relative;
+        margin: 10px 0;
+    }
+
+    .grid-testimonials .item-header {
+        margin: 20px 0;
+    }
+
     body > header {
         margin-bottom: 20px;
     }
@@ -548,17 +588,21 @@ section.flipped header::after {
     section.flipped::after, 
     section.flipped::before,
     body > header::before,
-    body > header::after {
+    body > header::after,
+    .grid-testimonials::after,
+    .grid-testimonials::before {
         width: 10vw;
     }
 
     section.flipped::after,
-    body > header::after {
+    body > header::after,
+    .grid-testimonials::after {
         right: -10vw;
     }
 
     section.flipped::before,
-    body > header::before {
+    body > header::before,
+    .grid-testimonials::before {
         left: -10vw;
     }
     
