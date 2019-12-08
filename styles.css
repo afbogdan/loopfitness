@@ -42,25 +42,9 @@ body > header {
     margin-top: 50px;
     position: relative;
     grid-column-start: 2;
+    padding: 0 15vw;
     grid-column-end: 3;
-}
-
-body > header::before,
-body > header::after {
-    content: '';
-    height: 100%;
-    width: 15vw;
-    background-color: var(--white);
-    position: absolute;
-    top: 0;
-}
-
-body > header::before {
-    left: -15vw;
-}
-
-body > header::after {
-    right: -15vw;
+    background: white;
 }
 
 nav {
@@ -118,7 +102,7 @@ nav ul li a:hover {
     font-family: Raleway, sans-serif;
     color: var(--darkgray);
     text-decoration: none;
-    right: 0;
+    right: 15vw;
     top: 25%;
     font-size: 1vw;
     -webkit-transition: 0.5s;
@@ -136,36 +120,9 @@ section {
     position: relative;
 }
 
-.grid-testimonials::after, .grid-testimonials::before,
-section.flipped::after, section.flipped::before {
-    content: '';
-    background: rgb(255, 255, 255);
-    width: 15vw;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-}
-
-section.flipped::after,
-.grid-testimonials::after {
-    right: -15vw;
-}
-
-section.flipped::before,
-.grid-testimonials::before {
-    left: -15vw;
-}
-
-section, footer {
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-
 /* default section */
 section p {
     margin-top: 10px;
-    padding: 7px;
     grid-column-start: 1;
     grid-column-end: 2;
 }
@@ -187,13 +144,13 @@ section header::before, section header::after {
 
 section header::before {
     top: 0;
-    width: 52px;
+    width: 50px;
     left: -50px;
 }
 
 section header::after {
-    width: 60%;
-    right: -60%;
+    width: 65%;
+    right: -65%;
     top: 0;
     z-index: 1;
 }
@@ -249,7 +206,7 @@ section.flipped header::before {
 
 section.flipped header::after {
     right: unset;
-    left: -60%;
+    left: -65%;
 }
 
 /* christmas section */
@@ -317,56 +274,39 @@ section.flipped header::after {
     grid-area: testimonial-three;
 }
 
-.grid-container {
-    width: 100%;
-}
-    
-.grid-container {
-    display: grid;
-    grid-template-columns: 15vw auto 15vw;
-    grid-template-rows: auto;
-}
-
 .grid-section {
     display: grid;
-    grid-template-columns: 47.5% 47.5%;
-    grid-column-gap: 5%;
+    grid-template-columns: 15vw 1fr 5vw 1fr 15vw;
     grid-template-rows: auto auto;
-    grid-template-areas: 
-    "header image"
-    "paragraph image";
+    grid-template-areas:
+        ". header . image ."
+        ". paragraph . image .";
 }
 
 .grid-section-flipped {
     grid-template-areas: 
-    "image header"
-    "image paragraph"
+    ". image . header ."
+    ". image . paragraph .";
 }
 
 .grid-footer {
     display: grid;
-    grid-template-columns: 47.5% 5% 22.75% 22.75%;
+    grid-template-columns: 15vw 2fr 5vw 1fr 1fr 15vw;
     grid-template-rows: auto 25% 35% auto;
-    grid-template-areas: 
-    "image . header header"
-    "image . address address"
-    "image . centreHours staffHours"
-    "image . welcome welcome";
+    grid-template-areas:
+        ". image . header header ."
+        ". image . address address. "
+        ". image . centreHours staffHours ."
+        ". image . welcome welcome .";
 }
 
 .grid-testimonials {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 5%;
+    grid-template-columns: 15vw 1fr 1fr 1fr 15vw;
     grid-template-rows: auto auto;
-    grid-template-areas: 
-        "header header header"
-        "testimonial-one testimonial-two testimonial-three";
-    background-color: var(--darkgreen);
-}
-
-.grid-testimonials::after,
-.grid-testimonials::before {
+    grid-template-areas:
+        ". header header header ."
+        ". testimonial-one testimonial-two testimonial-three .";
     background-color: var(--darkgreen);
 }
 
@@ -404,6 +344,10 @@ section.flipped header::after {
     margin-bottom: 70px;
 }
 
+.grid-testimonials article p {
+    padding: 0 20px;
+}
+
 /*Small laptops & bigger tablets*/
 @media (min-width: 1024px) and (max-width: 1440px) {
     section {
@@ -423,31 +367,6 @@ section.flipped header::after {
 
 /*Tablets*/
 @media (min-width: 768px) and (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: 10vw auto 10vw;
-    }
-
-    body > header::before,
-    body > header::after,
-    section.flipped::after, 
-    section.flipped::before,
-    .grid-testimonials::before,
-    .grid-testimonials::after {
-        width: 10vw;
-    }
-
-    body > header::before,
-    section.flipped::before,
-    .grid-testimonials::before {
-        left: -10vw;
-    }
-
-    body > header::after,
-    section.flipped::after,
-    .grid-testimonials::after {
-        right: -10vw;
-    }
-
     nav {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -498,10 +417,6 @@ section.flipped header::after {
 
 /* common tablets - small laptops */
 @media (min-width: 768px) and (max-width: 1440px) {
-    section header::after {
-        width: 62%;
-    }
-
     .headline {
         font-size: 2.8vw;
         z-index: 10;
@@ -515,43 +430,37 @@ section.flipped header::after {
 
 /*Phones & phablets*/
 @media (max-width: 768px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: 10vw auto 10vw;
-        grid-template-rows: auto;
-    }
-
     .grid-section {
         display: grid;
-        grid-template-columns: 100%;
+        grid-template-columns: 10vw 1fr 10vw;
         grid-template-rows: auto auto auto;
         grid-template-areas:
-            "header"
-            "image"
-            "paragraph";
+            ". header ."
+            ". image ."
+            ". paragraph .";
     }
 
     .grid-footer {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 8vw 1fr 1fr 8vw;
         grid-template-rows: repeat(5, auto);
         grid-template-areas:
-            "header header"
-            "image image"
-            "address address"
-            "centreHours staffHours"
-            "welcome welcome";
+            ". header header ."
+            ". image image ."
+            ". address address ."
+            ". centreHours staffHours ."
+            ". welcome welcome .";
     }
 
     .grid-testimonials {
-        grid-template-columns: 1fr;
+        grid-template-columns: 10vw 1fr 10vw;
         grid-column-gap: 0;
         grid-template-rows: auto auto auto auto;
-        grid-template-areas: 
-            "header"
-            "testimonial-one"
-            "testimonial-two"
-            "testimonial-three";
+        grid-template-areas:
+            ". header ."
+            ". testimonial-one ."
+            ". testimonial-two ."
+            ". testimonial-three .";
         background-color: var(--darkgreen);
     }
 
@@ -573,7 +482,7 @@ section.flipped header::after {
 
     .grid-testimonials article header .fa {
         position: relative;
-        margin: 10px 0;
+        margin: 40px 0 0 0;
     }
 
     .grid-testimonials .item-header {
@@ -603,27 +512,6 @@ section.flipped header::after {
     section header::after {
         display: none;
     }
-
-    section.flipped::after, 
-    section.flipped::before,
-    body > header::before,
-    body > header::after,
-    .grid-testimonials::after,
-    .grid-testimonials::before {
-        width: 10vw;
-    }
-
-    section.flipped::after,
-    body > header::after,
-    .grid-testimonials::after {
-        right: -10vw;
-    }
-
-    section.flipped::before,
-    body > header::before,
-    .grid-testimonials::before {
-        left: -10vw;
-    }
     
     section.christmas header {
         background: transparent;
@@ -637,7 +525,7 @@ section.flipped header::after {
     }
 
     section, section.flipped {
-        padding: 3%;
+        padding: 20px 0;
     }
 
     .headline {
@@ -675,7 +563,7 @@ section.flipped header::after {
 
     section p {
         width: 100%;
-        margin: 20px 0;
+        margin: 40px 0 20px 0;
         font-size: 3vw;
     }
 
@@ -685,7 +573,7 @@ section.flipped header::after {
 
     .logo {
         width: 100px;
-        left: 0px;
+        left: 10vw;
         top: -21px;
         margin: 0;
     }
@@ -698,9 +586,9 @@ section.flipped header::after {
         display: block;
     }
     
-    header .fa {
+    header #menuButton {
         position: absolute;
-        right: 0;
+        right: 10vw;
         top: 14px;
         color: var(--darkgray);
     }
