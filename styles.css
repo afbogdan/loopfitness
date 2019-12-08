@@ -14,7 +14,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html, body {
@@ -83,8 +84,9 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: var(--darkgray);
-    font-size: 1.2vw;
-    font-weight: 500;
+    font-size: 1vw;
+    font-weight: 600;
+    -webkit-transition: 0.15s ease-in-out;
     transition: 0.15s ease-in-out;
 }
 
@@ -119,6 +121,7 @@ nav ul li a:hover {
     right: 0;
     top: 25%;
     font-size: 1vw;
+    -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
@@ -210,6 +213,7 @@ section img {
 
 section header .link {
     color: var(--lightgreen);
+    -webkit-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
     margin-top: 4px;
     font-size: 1.3vw;
@@ -262,6 +266,8 @@ section.flipped header::after {
 /*footer section*/
 
 .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-left: 34vw;
 }
@@ -374,8 +380,13 @@ section.flipped header::after {
     text-align: center;
     color: var(--white);
     display: grid;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .grid-testimonials article i {
@@ -403,6 +414,10 @@ section.flipped header::after {
     p {
         font-size: 1.4vw;
         line-height: 1.6;
+    }
+
+    nav ul li a {
+        font-size: 1.4vw;
     }
 }
 
@@ -434,8 +449,12 @@ section.flipped header::after {
     }
 
     nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: flex-end;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
         margin-left: 0;
     }
 
@@ -562,7 +581,7 @@ section.flipped header::after {
     }
 
     body > header {
-        margin-bottom: 20px;
+        margin: 60px 0;
     }
 
     .item-address,
@@ -614,6 +633,7 @@ section.flipped header::after {
     section header {
         background: transparent;
         color: var(--darkgreen);
+        margin-bottom: 20px;
     }
 
     section, section.flipped {
@@ -656,7 +676,7 @@ section.flipped header::after {
     section p {
         width: 100%;
         margin: 20px 0;
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     section article header::before {
@@ -688,8 +708,11 @@ section.flipped header::after {
     header nav {
         background-color: var(--white);
         height: 50px;
+        -webkit-transition: 0.15s ease-out;
         transition: 0.15s ease-out;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     
     header nav ul {
@@ -700,12 +723,12 @@ section.flipped header::after {
     }
     
     header nav.active {
-        height: 173px;
+        height: 200px;
     }
     
     header nav ul li {
         opacity: 0;
-        margin: 15px 0;
+        margin: 20px 0;
         display: block;
         pointer-events: none;
     }
@@ -720,6 +743,7 @@ section.flipped header::after {
     
     header nav.active ul li {
         opacity: 1;
+        -webkit-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
         pointer-events: all;
     }
@@ -739,7 +763,8 @@ section.flipped header::after {
         width: 50px;
         background-color: var(--darkgreen);
         margin-left: calc(50% - 25px);
-        margin-top: 10px;
+        margin-top: 21px;
+        -webkit-transition: 0.15s ease-in-out;
         transition: 0.15s ease-in-out;
         opacity: 0;
     }
@@ -752,10 +777,18 @@ section.flipped header::after {
     header nav ul li a {
         font-size: 3.2vw;
     }
+
+    footer section header .headline {
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 475px) {
     header nav ul li a {
         font-size: 4vw;
+    }
+
+    section p {
+        font-size: 3.4vw;
     }
 }
