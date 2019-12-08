@@ -1,6 +1,7 @@
 @charset "UTF-8";
 :root {
     --lightyellow: #FAF7EC;
+    --lightgreen: #cdff4b;
     --green: #BFDA79;
     --darkgreen: #94C11E;
     --lightgreen: #e9ffaf;
@@ -133,6 +134,7 @@ section {
     position: relative;
 }
 
+.grid-testimonials::after, .grid-testimonials::before,
 section.flipped::after, section.flipped::before {
     content: '';
     background: rgb(255, 255, 255);
@@ -143,11 +145,13 @@ section.flipped::after, section.flipped::before {
     z-index: 1;
 }
 
-section.flipped::after {
+section.flipped::after,
+.grid-testimonials::after {
     right: -15vw;
 }
 
-section.flipped::before {
+section.flipped::before,
+.grid-testimonials::before {
     left: -15vw;
 }
 
@@ -293,7 +297,19 @@ section.flipped header::after {
 }
 
 .item-welcome {
-    grid-area: welcome
+    grid-area: welcome;
+}
+
+.item-testimonial-one {
+    grid-area: testimonial-one;
+}
+
+.item-testimonial-two {
+    grid-area: testimonial-two;
+}
+
+.item-testimonial-three {
+    grid-area: testimonial-three;
 }
 
 .grid-container {
@@ -331,6 +347,51 @@ section.flipped header::after {
     "image . address address"
     "image . centreHours staffHours"
     "image . welcome welcome";
+}
+
+.grid-testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "header header header"
+        "testimonial-one testimonial-two testimonial-three";
+    background-color: var(--darkgreen);
+}
+
+.grid-testimonials::after,
+.grid-testimonials::before {
+    background-color: var(--darkgreen);
+}
+
+.grid-testimonials article header::before,
+.grid-testimonials article header::after {
+    display: none;
+    background-color: transparent;
+}
+
+.grid-testimonials article {
+    text-align: center;
+    color: var(--white);
+    display: grid;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-testimonials article i {
+    color: var(--lightgreen);
+    margin: 40px 0 0 0;
+}
+
+.grid-testimonials article header {
+    background-color: transparent;
+}
+
+.grid-testimonials .item-header {
+    text-align: center;
+    color: var(--lightgreen);
+    margin-bottom: 70px;
 }
 
 /*Small laptops & bigger tablets*/
