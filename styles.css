@@ -683,7 +683,7 @@ section.flipped header::after {
     }
 
     .logo.small {
-        width: 80px;
-        top: -12px;
+        width: 60px;
+        top: 4px;
     }
 }
