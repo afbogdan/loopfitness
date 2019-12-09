@@ -252,16 +252,18 @@ section.flipped header::after {
 
 .item-centre-hours {
     grid-area: centreHours;
-    align-self: center;
+    align-self: center top;
 }
 
 .item-staff-hours {
     grid-area: staffHours;
-    align-self: center;
+    align-self: center top;
+    margin-bottom: 3vh;
 }
 
 .item-welcome {
     grid-area: welcome;
+    margin-top: 10px;
 }
 
 .item-testimonial-one {
