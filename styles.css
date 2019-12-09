@@ -264,7 +264,6 @@ section.flipped header::after {
 
 .item-welcome {
     grid-area: welcome;
-    margin-top: 10px;
 }
 
 .item-testimonial-one {
