@@ -129,14 +129,14 @@ section p {
     grid-column-end: 2;
 }
 
-section header {
+section .item-header {
     color: white;
     background-color: var(--darkgreen);
     position: relative;
     padding: 20px 0;
 }
 
-section header::before, section header::after {
+section .item-header::before, section .item-header::after {
     content: ' ';
     height: 100%;
     background-color: var(--darkgreen);
@@ -144,13 +144,13 @@ section header::before, section header::after {
     z-index: 100;
 } 
 
-section header::before {
+section .item-header::before {
     top: 0;
     width: 50px;
     left: -50px;
 }
 
-section header::after {
+section .item-header::after {
     width: 65%;
     right: -65%;
     top: 0;
@@ -171,7 +171,7 @@ section img {
     position: relative;
 }
 
-section header .link {
+section .item-header .link {
     color: var(--lightgreen);
     -webkit-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
@@ -179,11 +179,11 @@ section header .link {
     font-size: 1.3vw;
 }
 
-section header .link:visited {
+section .item-header .link:visited {
     color: var(--lightgreen);
 }
 
-section header .link:hover {
+section .item-header .link:hover {
     color: var(--white);
 }
 
@@ -197,33 +197,38 @@ section.flipped img {
     left: 0;
 }
 
-section.flipped header {
+section.flipped .item-header {
     padding: 20px 0;
 }
 
-section.flipped header::before {
+section.flipped .item-header::before {
     width: 55px;
     left: unset;
     right: -50px;
 }
 
-section.flipped header::after {
+section.flipped .item-header::after {
     right: unset;
     left: -65%;
 }
 
 /* christmas section */
 
-.christmas header {
+.christmas .item-header {
     background-color: #E20000;
 }
 
-.christmas header::before,
-.christmas header::after {
+.christmas .item-header::before,
+.christmas .item-header::after {
     background-color: #E20000;
 }
 
 /*footer section*/
+
+footer section span {
+    color: var(--darkgreen);
+    font-weight: 600;
+}
 
 .flex-container {
     display: -webkit-box;
@@ -258,12 +263,11 @@ section.flipped header::after {
 
 .item-staff-hours {
     grid-area: staffHours;
-    align-self: center top;
-    margin-bottom: 3vh;
 }
 
 .item-welcome {
     grid-area: welcome;
+    margin-top: 30px;
 }
 
 .item-testimonial-one {
@@ -300,7 +304,7 @@ section.flipped header::after {
     grid-template-areas:
         ". image . header header ."
         ". image . address address. "
-        ". image . centreHours staffHours ."
+        ". image . staffHours centreHours ."
         ". image . welcome welcome .";
 }
 
@@ -314,8 +318,8 @@ section.flipped header::after {
     background-color: var(--darkgreen);
 }
 
-.grid-testimonials article header::before,
-.grid-testimonials article header::after {
+.grid-testimonials article .item-header::before,
+.grid-testimonials article .item-header::after {
     display: none;
     background-color: transparent;
 }
@@ -338,7 +342,7 @@ section.flipped header::after {
     margin: 40px 0 0 0;
 }
 
-.grid-testimonials article header {
+.grid-testimonials article .item-header {
     background-color: transparent;
 }
 
@@ -346,6 +350,10 @@ section.flipped header::after {
     text-align: center;
     color: var(--lightgreen);
     margin-bottom: 70px;
+}
+
+section.grid-testimonials .item-header::before, section.grid-testimonials .item-header::after {
+    display: none;
 }
 
 .grid-testimonials article p {
@@ -398,17 +406,17 @@ section.flipped header::after {
         line-height: 1.6;
     }
     
-    section article header::before {
+    section article .item-header::before {
         width: 50px;
     } 
     
-    section.flipped header::before {
+    section.flipped .item-header::before {
         width: 32px;
         left: unset;
         right: -30px;
     }
 
-    section header::before {
+    section .item-header::before {
         width: 32px;
         left: -30px;
     }
@@ -502,27 +510,27 @@ section.flipped header::after {
         text-align: center;
     }
 
-    section header .link {
+    section .item-header .link {
         color: var(--darkgray);
         margin: 10px 0;
         font-size: 4vw;
     }
 
-    section header .link:visited {
+    section .item-header .link:visited {
         color: var(--darkgray);
     }
 
-    section header::before, 
-    section header::after {
+    section .item-header::before, 
+    section .item-header::after {
         display: none;
     }
     
-    section.christmas header {
+    section.christmas .item-header {
         background: transparent;
         color: var(--red);
     }
 
-    section header {
+    section .item-header {
         background: transparent;
         color: var(--darkgreen);
         margin-bottom: 20px;
@@ -538,8 +546,8 @@ section.flipped header::after {
         text-align: center;
     }
 
-    section article header,
-    section.flipped header {
+    section article .item-header,
+    section.flipped .item-header {
         padding: 20px 0;
         width: 100%;
         color: var(--darkgreen);
@@ -547,13 +555,13 @@ section.flipped header::after {
         text-align: center;
     }
 
-    .christmas article header {
+    .christmas article .item-header {
         background: transparent;
         color: var(--red);
     }
 
-    section article header .link,
-    section article header .link:visited {
+    section article .item-header .link,
+    section article .item-header .link:visited {
         color: var(--darkgray);
         font-size: 4vw;
     }
@@ -670,7 +678,7 @@ section.flipped header::after {
         font-size: 3.2vw;
     }
 
-    footer section header .headline {
+    footer section .item-header .headline {
         margin-bottom: 20px;
     }
 }
