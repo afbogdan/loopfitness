@@ -465,7 +465,7 @@ section.grid-testimonials .item-header::before, section.grid-testimonials .item-
             ". header header ."
             ". image image ."
             ". address address ."
-            ". centreHours staffHours ."
+            ". staffHours centreHours ."
             ". welcome welcome .";
     }
 
