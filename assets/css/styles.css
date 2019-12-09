@@ -339,7 +339,7 @@ footer section span {
 
 .grid-testimonials article i {
     color: var(--lightgreen);
-    margin: 40px 0 0 0;
+    margin: 40px 0 20px 0;
 }
 
 .grid-testimonials article .item-header {
@@ -494,7 +494,8 @@ section.grid-testimonials .item-header::before, section.grid-testimonials .item-
 
     .grid-testimonials article header .fa {
         position: relative;
-        margin: 40px 0 0 0;
+        margin: 30px 0 20px 0;
+        font-size: 5vw;
     }
 
     .grid-testimonials .item-header {
